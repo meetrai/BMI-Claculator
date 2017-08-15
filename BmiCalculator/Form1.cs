@@ -93,7 +93,7 @@ namespace BmiCalculator
                 else if (bmi > 25 && bmi <= 29.9)
                 { ResultTextBox.Text = Result + " YOU ARE OVERWEIGHT"; }
                 else if (bmi >= 30)
-                { ResultTextBox.Text = Result + " YOU ARE OBESE"; }
+                { ResultTextBox.Text = Result + " YOU ARE OBESE "; }
             }
             
         }
