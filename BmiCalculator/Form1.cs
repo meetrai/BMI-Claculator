@@ -10,7 +10,7 @@ using System.Windows.Forms;
 /*Name:Manmeet Singh
  Student no. : 300932996
  Description:Building a BMI calculator
- version :0.2 Added public variables and added fuctionality to the imperial radio button*/
+ version :0.3 Added public variables and added fuctionality to the Metric radio button*/
 namespace BmiCalculator
 {
     public partial class TheCalculatorForm : Form
@@ -95,7 +95,19 @@ namespace BmiCalculator
                 else if (bmi >= 30)
                 { ResultTextBox.Text = Result + " YOU ARE OBESE "; }
             }
-            
+            else if (MetricRadioButton.Checked)
+            {
+                bmi = (weight) / (height * height);
+                string Result = Convert.ToString(Math.Round(bmi,2)) + " - ";
+                if (bmi < 18.5)
+                { ResultTextBox.Text = Result + " YOU ARE UNDERWEIGHT"; }
+                else if (bmi > 18.5 && bmi < 24.9)
+                { ResultTextBox.Text = Result + "YOU ARE NORMAL"; }
+                else if (bmi > 25 && bmi <= 29.9)
+                { ResultTextBox.Text = Result + " YOU ARE OVERWEIGHT"; }
+                else if (bmi >= 30)
+                { ResultTextBox.Text = Result + " YOU ARE OBESE "; }
+            }
         }
 
         private void ResultTextBox_TextChanged(object sender, EventArgs e)
@@ -105,7 +117,9 @@ namespace BmiCalculator
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            
+            TheCalculatorForm NewForm = new TheCalculatorForm();
+            NewForm.Show();
+            this.Dispose(false);
         }
     }
 }
